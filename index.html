@@ -1,282 +1,293 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Razones para Salir con Ellas 💘</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      :root {
+        --blue: #60a5fa;
+        --pink: #f472b6;
+        --glass: rgba(255, 255, 255, 0.15);
+        --border: rgba(255, 255, 255, 0.3);
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Razones para Salir con Ellas 💘</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <style>
-    :root {
-      --blue: #60a5fa;
-      --pink: #f472b6;
-      --glass: rgba(255, 255, 255, 0.15);
-      --border: rgba(255, 255, 255, 0.3);
-    }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+        color: #1f2937;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+      }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
-      color: #1f2937;
-      padding: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-    }
+      #root {
+        width: 100%;
+        max-width: 900px;
+      }
 
-    #root {
-      width: 100%;
-      max-width: 900px;
-    }
+      h1, h2, h3 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
 
-    h1,
-    h2,
-    h3 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
+      .card {
+        background: var(--glass);
+        border: 1px solid var(--border);
+        border-radius: 1.5rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
 
-    .card {
-      background: var(--glass);
-      border: 1px solid var(--border);
-      border-radius: 1.5rem;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.15);
+      }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.15);
-    }
+      .card.alejandra {
+        background: url('alejandra-bg.jpg') center 30% / cover no-repeat;
+        background-blend-mode: overlay;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #1f2937;
+      }
 
-    .card img {
-      display: block;
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid white;
-      margin: 0 auto 1rem;
-    }
+      .card.mariajose {
+        background: url('mariajose-bg.jpg') center 30% / cover no-repeat;
+        background-blend-mode: overlay;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #1f2937;
+      }
 
-    .card.alejandra {
-      background: url('alejandra-bg.jpg') center 30% / cover no-repeat;
-      background-blend-mode: overlay;
-      background-color: rgba(255, 255, 255, 0.6);
-      /* increased transparency */
-      color: #1f2937;
-    }
-
-
-
-    ul {
-      padding-left: 1.5rem;
-      margin: 1rem 0;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      color: white;
-      margin-top: 1rem;
-    }
-
-    blockquote {
-      background-color: rgba(255, 255, 255, 0.3);
-      border-left: 4px solid var(--blue);
-      padding: 1rem;
-      margin: 1rem 0;
-      font-style: italic;
-      border-radius: 0.5rem;
-    }
-
-    blockquote footer {
-      margin-top: 0.5rem;
-      text-align: right;
-      font-weight: bold;
-    }
-
-    .form-section {
-      background: var(--glass);
-      border: 1px solid var(--border);
-      border-radius: 1.5rem;
-      padding: 2rem;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: 600;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-top: 0.3rem;
-      border-radius: 0.75rem;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      background-color: rgba(255, 255, 255, 0.8);
-      outline: none;
-    }
-
-    button {
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      font-weight: bold;
-      background: linear-gradient(to right, #ec4899, #8b5cf6);
-      color: white;
-      border: none;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    @media (max-width: 600px) {
-
-      .card,
-      .form-section {
-        padding: 1.5rem;
+      .card-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        flex-wrap: wrap;
       }
 
       .card img {
         width: 100px;
         height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid white;
+        margin: 0;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <div id="root"></div>
+      ul {
+        padding-left: 1.5rem;
+        margin: 1rem 0;
+      }
 
-  <script type="text/babel">
-    const Card = ({ name, color, quote, list, hashtag, image, className = "" }) => (
-      <div className={`card ${className}`} style={{ borderLeft: `5px solid ${color}` }}>
-        <img src={image} alt={name} />
-        <h2>{name}</h2>
-        <p><em>{quote}</em></p>
-        <ul>
-          {list.map((item, i) => <li key={i}>• {item}</li>)}
-        </ul>
-        <div className="tag" style={{ backgroundColor: color }}>{hashtag}</div>
-      </div>
-    );
+      li {
+        margin-bottom: 0.5rem;
+      }
 
-    const Testimonios = () => (
-      <div className="card">
-        <h3>Testimonios 💬</h3>
-        <blockquote>
-          <p>"Salí con Alejandra una vez y terminé adoptando un pollo. 10/10 experiencia."</p>
-          <footer>— Un ex afortunado</footer>
-        </blockquote>
-        <blockquote>
-          <p>"Maria Jose me escribió una carta de amor tan buena que lloré y luego tropecé. Fue mágico."</p>
-          <footer>— Un fan literario</footer>
-        </blockquote>
-      </div>
-    );
+      .tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        border-radius: 999px;
+        color: white;
+        margin-top: 1rem;
+      }
 
-    const Formulario = () => {
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        const nombre = e.target.nombre.value;
-        const objetivo = e.target.objetivo.value;
-        const razon = e.target.razon.value;
-        const mailto = `mailto:coronasaldivarmariajose@gmail.com?subject=Aplicación amorosa&body=Nombre: ${nombre}%0D%0AObjetivo: ${objetivo}%0D%0ARazón: ${razon}`;
-        window.location.href = mailto;
+      blockquote {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-left: 4px solid var(--blue);
+        padding: 1rem;
+        margin: 1rem 0;
+        font-style: italic;
+        border-radius: 0.5rem;
+      }
+
+      blockquote footer {
+        margin-top: 0.5rem;
+        text-align: right;
+        font-weight: bold;
+      }
+
+      .form-section {
+        background: var(--glass);
+        border: 1px solid var(--border);
+        border-radius: 1.5rem;
+        padding: 2rem;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-top: 1rem;
+        font-weight: 600;
+      }
+
+      input, select, textarea {
+        width: 100%;
+        padding: 0.75rem;
+        margin-top: 0.3rem;
+        border-radius: 0.75rem;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        outline: none;
+      }
+
+      button {
+        margin-top: 1.5rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        background: linear-gradient(to right, #ec4899, #8b5cf6);
+        color: white;
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (max-width: 600px) {
+        .card, .form-section {
+          padding: 1.5rem;
+        }
+
+        .card-content {
+          flex-direction: row;
+          align-items: flex-start;
+        }
+
+        .card img {
+          width: 80px;
+          height: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const Card = ({ name, color, quote, list, hashtag, image, className = "" }) => (
+        <div className={`card ${className}`} style={{ borderLeft: `5px solid ${color}` }}>
+          <div className="card-content">
+            <img src={image} alt={name} />
+            <div>
+              <h2>{name}</h2>
+              <p><em>{quote}</em></p>
+              <ul>
+                {list.map((item, i) => <li key={i}>• {item}</li>)}
+              </ul>
+              <div className="tag" style={{ backgroundColor: color }}>{hashtag}</div>
+            </div>
+          </div>
+        </div>
+      );
+
+      const Testimonios = () => (
+        <div className="card">
+          <h3>Testimonios 💬</h3>
+          <blockquote>
+            <p>"Salí con Alejandra una vez y terminé adoptando un pollo. 10/10 experiencia."</p>
+            <footer>— Un ex afortunado</footer>
+          </blockquote>
+          <blockquote>
+            <p>"Maria Jose me escribió una carta de amor tan buena que lloré y luego tropecé. Fue mágico."</p>
+            <footer>— Un fan literario</footer>
+          </blockquote>
+        </div>
+      );
+
+      const Formulario = () => {
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          const nombre = e.target.nombre.value;
+          const objetivo = e.target.objetivo.value;
+          const razon = e.target.razon.value;
+          const mailto = `mailto:coronasaldivarmariajose@gmail.com?subject=Aplicación amorosa&body=Nombre: ${nombre}%0D%0AObjetivo: ${objetivo}%0D%0ARazón: ${razon}`;
+          window.location.href = mailto;
+        };
+
+        return (
+          <form className="form-section" onSubmit={handleSubmit}>
+            <h3>Formulario de Aplicación 💌</h3>
+            <label>Nombre:</label>
+            <input type="text" name="nombre" required />
+
+            <label>¿A quién quieres conquistar?</label>
+            <select name="objetivo" required>
+              <option value="">Selecciona una opción</option>
+              <option value="Alejandra Sarahy">Alejandra Sarahy</option>
+              <option value="Maria Jose">Maria Jose</option>
+              <option value="Ambas">Ambas (¡viva el drama!)</option>
+            </select>
+
+            <label>¿Por qué deberías ser elegid@?</label>
+            <textarea name="razon" rows="4" required></textarea>
+
+            <button type="submit">Enviar Aplicación</button>
+          </form>
+        );
       };
 
-      return (
-        <form className="form-section" onSubmit={handleSubmit}>
-          <h3>Formulario de Aplicación 💌</h3>
-          <label>Nombre:</label>
-          <input type="text" name="nombre" required />
-
-          <label>¿A quién quieres conquistar?</label>
-          <select name="objetivo" required>
-            <option value="">Selecciona una opción</option>
-            <option value="Alejandra Sarahy">Alejandra Sarahy</option>
-            <option value="Maria Jose">Maria Jose</option>
-            <option value="Ambas">Ambas (¡viva el drama!)</option>
-          </select>
-
-          <label>¿Por qué deberías ser elegid@?</label>
-          <textarea name="razon" rows="4" required></textarea>
-
-          <button type="submit">Enviar Aplicación</button>
-        </form>
+      const App = () => (
+        <div>
+          <h1>Razones para Salir con Ellas 💘</h1>
+          <Card
+            name="Alejandra Sarahy"
+            color="#60a5fa"
+            image="alejandra.jpg"
+            quote="Dulce por fuera, mecatrónica por dentro."
+            list={[
+              "Certificada como la más tierna 💖",
+              "Ingeniera en Mecatrónica — construye robots y relaciones 🤖",
+              "Fútbolista de corazón ⚽",
+              "Amante del pollo en todas sus formas 🍗",
+              "Se cae más de lo que se enamora (pero se levanta con estilo) 💥",
+            ]}
+            hashtag="#TeamAzul"
+            className="alejandra"
+          />
+          <Card
+            name="Maria Jose"
+            color="#f472b6"
+            image="mariajose.jpg"
+            quote="Escribe poesía, tiene membresía en urgencias, y roba corazones."
+            list={[
+              "Licenciada en Literatura — te escribe poemas y finales felices 📖",
+              "Nadadora profesional y pianista celestial 🎹",
+              "No come carne, pero sí se come el escenario 🥗",
+              "Las lesiones son parte de su encanto 🩹",
+              "Especialidad: dejarte en visto con elegancia 📱💔",
+            ]}
+            hashtag="#TeamRosa"
+            className="mariajose"
+          />
+          <Testimonios />
+          <Formulario />
+        </div>
       );
-    };
 
-    const App = () => (
-      <div>
-        <h1>Razones para Salir con Ellas 💘</h1>
-        <Card
-          name="Alejandra Sarahy"
-          color="#60a5fa"
-          image="alejandra.jpg"
-          quote="Dulce por fuera, mecatrónica por dentro."
-          list={[
-            "Certificada como la más tierna 💖",
-            "Ingeniera en Mecatrónica — construye robots y relaciones 🤖",
-            "Fútbolista de corazón ⚽",
-            "Amante del pollo en todas sus formas 🍗",
-            "Se cae más de lo que se enamora (pero se levanta con estilo) 💥",
-          ]}
-          hashtag="#TeamAzul"
-          className="alejandra"
-        />
-        <Card
-          name="Maria Jose"
-          color="#f472b6"
-          image="mariajose.jpg"
-          quote="Escribe poesía, tiene membresía en urgencias, y roba corazones."
-          list={[
-            "Licenciada en Literatura — te escribe poemas y finales felices 📖",
-            "Nadadora profesional y pianista celestial 🎹",
-            "No come carne, pero sí se come el escenario 🥗",
-            "Las lesiones son parte de su encanto 🩹",
-            "Especialidad: dejarte en visto con elegancia 📱💔",
-          ]}
-          hashtag="#TeamRosa"
-        />
-        <Testimonios />
-        <Formulario />
-      </div>
-    );
-
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-  </script>
-</body>
-
+      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+  </body>
 </html>
